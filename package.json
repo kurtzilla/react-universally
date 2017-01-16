@@ -5,6 +5,7 @@
   "main": "build/server/index.js",
   "engines": {
     "node": ">=6"
+    
   },
   "scripts": {
     "preinstall": "node tools/scripts/preinstall",
