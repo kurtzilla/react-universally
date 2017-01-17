@@ -17,8 +17,6 @@ if (process.env.IS_CLIENT) {
 
 // Trying to find a way that works with our scenarios
 // what I have set up here will cover localMachine -vs- Heroku
-// console.log('config node env', process.env.NPM_CONFIG_PRODUCTION == undefined);
-// console.log('config node isDev', typeof process.env.NPM_CONFIG_PRODUCTION === 'undefined');
 const serverVarName = (typeof process.env.NPM_CONFIG_PRODUCTION === 'undefined') ? 'SERVER_PORT' : 'PORT';
 
 
