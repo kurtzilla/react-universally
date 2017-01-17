@@ -19,7 +19,7 @@ if (process.env.IS_CLIENT) {
 // what I have set up here will cover localMachine -vs- Heroku
 // console.log('config node env', process.env.NPM_CONFIG_PRODUCTION == undefined);
 // console.log('config node isDev', typeof process.env.NPM_CONFIG_PRODUCTION === 'undefined');
-// const serverVarName = (typeof process.env.NPM_CONFIG_PRODUCTION === 'undefined') ? 'SERVER_PORT' : 'PORT';
+const serverVarName = (typeof process.env.NPM_CONFIG_PRODUCTION === 'undefined') ? 'SERVER_PORT' : 'PORT';
 
 
 const config = {
@@ -27,7 +27,7 @@ const config = {
   host: getStringEnvVar('SERVER_HOST', 'localhost'),
 
   // The port on which the server should run.
-  port: getIntEnvVar('SERVER_PORT', 1337),
+  port: getIntEnvVar(serverVarName, 1337),
   // port: getIntEnvVar('SERVER_PORT', 1337),
   //port: getIntEnvVar('PORT', 1337),
 
