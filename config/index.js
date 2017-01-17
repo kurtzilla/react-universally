@@ -15,9 +15,11 @@ if (process.env.IS_CLIENT) {
   throw new Error("You shouldn't be importing the `./config` directly into your 'client' or 'shared' source as the configuration object will get included in your client bundle. Not a safe move! Instead, use the `safeConfigGet` helper function (located at `./src/shared/utils/config`) within the 'client' or 'shared' source files to reference configuration values in a safe manner.");
 }
 
-// console.log('config node env', process.env.NPM_CONFIG_PRODUCTION);
-console.log('config node env', process.env.NPM_CONFIG_PRODUCTION == undefined);
-console.log('config node isDev', typeof process.env.NPM_CONFIG_PRODUCTION === 'undefined');
+// Trying to find a way that works with our scenarios
+// what I have set up here will cover localMachine -vs- Heroku
+// console.log('config node env', process.env.NPM_CONFIG_PRODUCTION == undefined);
+// console.log('config node isDev', typeof process.env.NPM_CONFIG_PRODUCTION === 'undefined');
+// const serverVarName = (typeof process.env.NPM_CONFIG_PRODUCTION === 'undefined') ? 'SERVER_PORT' : 'PORT';
 
 
 const config = {
@@ -26,6 +28,7 @@ const config = {
 
   // The port on which the server should run.
   port: getIntEnvVar('SERVER_PORT', 1337),
+  // port: getIntEnvVar('SERVER_PORT', 1337),
   //port: getIntEnvVar('PORT', 1337),
 
   // The port on which the client bundle development server should run.
