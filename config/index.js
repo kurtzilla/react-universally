@@ -15,15 +15,16 @@ if (process.env.IS_CLIENT) {
   throw new Error("You shouldn't be importing the `./config` directly into your 'client' or 'shared' source as the configuration object will get included in your client bundle. Not a safe move! Instead, use the `safeConfigGet` helper function (located at `./src/shared/utils/config`) within the 'client' or 'shared' source files to reference configuration values in a safe manner.");
 }
 
-console.log('config node env', process.env.NODE_ENV);
+console.log('config node env', process.env.NPM_CONFIG_PRODUCTION);
+console.log('config node env', process.env.NPM_CONFIG_PRODUCTION == undefined);
 
 const config = {
   // The host on which the server should run.
   host: getStringEnvVar('SERVER_HOST', 'localhost'),
 
   // The port on which the server should run.
-  // port: getIntEnvVar('SERVER_PORT', 1337),
-  port: getIntEnvVar('PORT', 1337),
+  port: getIntEnvVar('SERVER_PORT', 1337),
+  //port: getIntEnvVar('PORT', 1337),
 
   // The port on which the client bundle development server should run.
   clientDevServerPort: getIntEnvVar('CLIENT_DEVSERVER_PORT', 7331),
