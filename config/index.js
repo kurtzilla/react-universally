@@ -18,6 +18,9 @@ if (process.env.IS_CLIENT) {
 console.log('config node env', process.env.NPM_CONFIG_PRODUCTION);
 console.log('config node env', process.env.NPM_CONFIG_PRODUCTION == undefined);
 
+console.log('config node isDev', typeof process.env.NPM_CONFIG_PRODUCTION === 'undefined');
+
+
 const config = {
   // The host on which the server should run.
   host: getStringEnvVar('SERVER_HOST', 'localhost'),
