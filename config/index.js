@@ -15,6 +15,8 @@ if (process.env.IS_CLIENT) {
   throw new Error("You shouldn't be importing the `./config` directly into your 'client' or 'shared' source as the configuration object will get included in your client bundle. Not a safe move! Instead, use the `safeConfigGet` helper function (located at `./src/shared/utils/config`) within the 'client' or 'shared' source files to reference configuration values in a safe manner.");
 }
 
+console.log('config node env', process.env.NODE_ENV);
+
 const config = {
   // The host on which the server should run.
   host: getStringEnvVar('SERVER_HOST', 'localhost'),
